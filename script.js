@@ -1,5 +1,9 @@
 // RuneCast Landing Page Script
 
+// Configuration constants
+const GLITCH_PROBABILITY = 0.7; // Probability threshold for glitch effect
+const TYPING_SPEED_MS = 100; // Speed of typing animation in milliseconds
+
 document.addEventListener('DOMContentLoaded', function() {
     // Add smooth scrolling for any navigation links
     const links = document.querySelectorAll('a[href^="#"]');
@@ -23,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const glitchText = document.querySelector('.glitch-text');
     if (glitchText) {
         setInterval(() => {
-            if (Math.random() > 0.7) {
+            if (Math.random() > GLITCH_PROBABILITY) {
                 glitchText.style.animation = 'none';
                 setTimeout(() => {
                     glitchText.style.animation = '';
@@ -83,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (index < text.length) {
                 tagline.textContent += text.charAt(index);
                 index++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, TYPING_SPEED_MS);
             }
         }
         
