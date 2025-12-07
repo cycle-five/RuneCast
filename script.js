@@ -36,21 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
 
-    // Add parallax effect to hero background
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.hero');
-                if (hero && scrolled < hero.offsetHeight) {
-                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                }
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
+    // Parallax scrolling disabled per user request
 
     // Add fade-in animation for sections on scroll
     const observerOptions = {
