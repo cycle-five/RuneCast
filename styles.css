@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Space+Grotesk:wght@400;500;700&display=swap');
 :root{--ink:#0a0a14;--panel:#12121f;--panel2:#171728;--cyan:#2fe4ff;--mag:#ff2e88;--vio:#8b5cf6;--mist:#b8bed4;--white:#f2f4ff;--muted:#8b93ad;--line:#20203a;}
 *{box-sizing:border-box;}
-body{margin:0;background:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;color:var(--white);width:1200px;}
+body{margin:0;background:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;color:var(--white);}
 a{text-decoration:none;}
 .wrap{max-width:1040px;margin:0 auto;}
 .wm{display:inline-block;transform:rotate(-6deg);text-transform:uppercase;line-height:.82;text-align:left;}
@@ -64,3 +64,21 @@ a{text-decoration:none;}
 /* live leaderboard loading states (Task 2 scaffold — populated in Task 3) */
 .lb-skeleton{opacity:.55;} .lb-skeleton .lb-name{color:var(--muted);}
 .lb-fallback .lb-name{color:var(--mist);} .lb-fallback a{color:var(--cyan);}
+
+/* responsive breakpoints (Task 4) */
+@media (max-width: 820px){
+  .lb-split,.media{flex-direction:column;gap:26px;}
+  .features{grid-template-columns:repeat(2,1fr);}
+  .nav-links a:not(.cta){display:none;}      /* keep only the Play CTA on small nav */
+  .media .shot img{height:340px;}
+}
+@media (max-width: 460px){
+  .features{grid-template-columns:1fr;}
+  .wm-lg span{font-size:46px;} .heroA{padding:44px 20px 24px;}
+  .band{padding:48px 22px;} .h2{font-size:24px;}
+  .ctas{flex-direction:column;align-items:stretch;} .cta{justify-content:center;}
+}
+
+/* accessibility (Task 4) */
+a:focus-visible,.cta:focus-visible,.social:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important;}}
