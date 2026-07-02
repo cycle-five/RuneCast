@@ -1,108 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RUNECAST - Discord Word Game</title>
-    <meta name="description" content="RuneCast - SpellCast Reborn, Reimagined, Unrivaled. A cyberpunk word game Discord Activity.">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RuneCast — a neon word game for Discord</title>
+  <meta name="description" content="RuneCast is a neon word game you play right inside Discord — daily challenges, live multiplayer, and monthly races.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <!-- og/twitter meta + favicon added in Task 4 -->
 </head>
 <body>
-    <!-- Scanline overlay effect -->
-    <div class="scanlines"></div>
-    <div class="grid-overlay"></div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="container">
-            <h1 class="glitch-text" data-text="RUNECAST">RUNECAST</h1>
-            <p class="tagline">SpellCast Reborn, Reimagined, Unrivaled</p>
-            <div class="subtitle">A Next-Gen Word Game Discord Activity</div>
-        </div>
-    </section>
+<!-- NAV -->
+<div class="nav">
+  <div class="navmark">RuneCast</div>
+  <div class="nav-links">
+    <a>Features</a><a>Daily</a><a>Community</a>
+    <a class="cta cta-primary" style="padding:9px 16px;">Play on Discord</a>
+  </div>
+</div>
 
-    <!-- Links Section -->
-    <section id="links" class="links">
-        <div class="container">
-            <h2 class="section-title">GET STARTED</h2>
-            <div class="links-content">
-                <a href="https://discord.com/oauth2/authorize?client_id=1445199102773170206" class="cta-button primary-glow">
-                    <span class="button-text">Play on Discord</span>
-                    <span class="button-glow"></span>
-                </a>
-                <a href="https://discord.gg/mru3dpDAYv" class="cta-button secondary-glow">
-                    <span class="button-text">Join Server</span>
-                    <span class="button-glow"></span>
-                </a>
-            </div>
-        </div>
-    </section>
+<!-- HERO A -->
+<section class="heroA">
+  <div class="grid"></div>
+  <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
+    <div class="wm wm-lg"><span class="l1">Rune</span><span class="l2">Cast</span></div>
+    <div style="transform:rotate(-6deg);margin:14px 0 2px;"><div class="loadbar">
+      <span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+    </div></div>
+    <div class="tag" style="margin-top:12px;">SpellCast, reforged.</div>
+    <div class="sub" style="max-width:440px;margin-top:4px;">A neon word game you play right inside Discord — daily challenges, live multiplayer, and monthly races.</div>
+    <div class="ctas"><a class="cta cta-primary">▶ Play on Discord</a><a class="cta cta-ghost">Join Server</a></div>
+    <div class="board-frame"><img src="assets/board-desktop.png"></div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">ABOUT THE GAME</h2>
-            <div class="about-content">
-                <p>RuneCast is an immersive word game experience built for Discord. Challenge your vocabulary, compete with friends, and rise through the ranks in this cyberpunk-inspired battle of wits.</p>
-                <p>With leaderboards, achievements, competitions, and countless features in active development, RuneCast represents the evolution of word gaming.</p>
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">🏆</div>
-                        <h3>Leaderboards</h3>
-                        <p>Compete globally and track your progress</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Achievements</h3>
-                        <p>Unlock rewards as you master the game</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚔️</div>
-                        <h3>Competitions</h3>
-                        <p>Join tournaments and special events</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- LIVE DAILY LEADERBOARD -->
+<section class="band"><div class="wrap lb-split">
+  <div class="copy">
+    <div class="kicker"><span class="livedot"></span>Live · updates daily</div>
+    <div class="h2">Today's Daily Challenge</div>
+    <div class="sub" style="max-width:380px;">One board. Everyone. 90 seconds on the clock. A fresh puzzle drops every day at midnight UTC — climb the board and defend your streak.</div>
+    <a class="cta cta-primary" style="margin-top:22px;">Play today's challenge ▸</a>
+  </div>
+  <div class="panelwrap"><div class="lb">
+    <div class="lb-head"><span>Rank · Player</span><span>Score</span></div>
+    <div class="lb-div"><div class="loadbar"><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg"></span><span class="seg"></span></div></div>
+    <div class="lb-body" id="daily-lb-rows" aria-live="polite">
+      <div class="lb-row lb-skeleton"><div class="lb-rank">…</div><div class="lb-name">Loading today's board…</div><div class="lb-score"></div></div>
+    </div>
+  </div></div>
+</div></section>
 
-    <!-- Media Section -->
-    <section id="media" class="media">
-        <div class="container">
-            <h2 class="section-title">MEDIA</h2>
-            <div class="media-grid">
-                <div class="media-item">
-                    <div class="media-placeholder">
-                        <span class="media-label">SCREENSHOT</span>
-                    </div>
-                </div>
-                <div class="media-item">
-                    <div class="media-placeholder">
-                        <span class="media-label">GAMEPLAY</span>
-                    </div>
-                </div>
-                <div class="media-item">
-                    <div class="media-placeholder">
-                        <span class="media-label">INTERFACE</span>
-                    </div>
-                </div>
-                <div class="media-item">
-                    <div class="media-placeholder">
-                        <span class="media-label">FEATURES</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- FEATURES -->
+<section class="band"><div class="wrap" style="text-align:center;">
+  <div class="kicker">What's inside</div>
+  <div class="h2">More than a word game.</div>
+  <div class="features" style="text-align:left;">
+    <div class="fcard"><div class="ic">🗓️</div><h3>Daily Challenge</h3><p>One puzzle, everyone, 90 seconds. Compete for the day's top spot.</p></div>
+    <div class="fcard"><div class="ic">⚔️</div><h3>Live Multiplayer</h3><p>Free-for-all word battles in your server — or spectate a live match.</p></div>
+    <div class="fcard"><div class="ic">🏆</div><h3>Monthly Races</h3><p>Bank points all month long and climb the monthly leaderboard.</p></div>
+    <div class="fcard"><div class="ic">💥</div><h3>Adventure Events</h3><p>Bombs, snakes and UFOs shake up the board mid-game.</p></div>
+  </div>
+</div></section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Cycle Five Syndicate</p>
-            <p class="footer-subtitle">Trite tricky tagline</p>
-        </div>
-    </footer>
+<!-- MEDIA / PLAY ANYWHERE -->
+<section class="band"><div class="wrap media">
+  <div class="shot"><img src="assets/board-mobile.png"></div>
+  <div class="copy">
+    <div class="kicker">Play anywhere</div>
+    <div class="h2">It's a Discord Activity — no install.</div>
+    <div class="sub" style="max-width:420px;">Launch RuneCast right inside any Discord channel — voice <em>or</em> text — and play together in seconds. Works on desktop, mobile, and web; your themes, streak, and stats follow you everywhere.</div>
+    <div class="pills"><span class="pill">🖥️ Desktop</span><span class="pill">📱 Mobile</span><span class="pill">🌐 Web</span></div>
+  </div>
+</div></section>
 
-    <script src="script.js"></script>
+<!-- COMMUNITY -->
+<section class="community">
+  <div class="fulldiv"><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg"></span><span class="seg"></span></div>
+  <div class="kicker">Community</div>
+  <div class="h2">Join the players.</div>
+  <div class="sub" style="max-width:440px;margin:0 auto;">Tips, tournaments, and the people behind RuneCast. Come say hi.</div>
+  <div class="socials">
+    <a class="social"><span class="dot" style="background:#5865F2;"></span>Discord — Join Server</a>
+    <a class="social"><span class="dot" style="background:#FF4500;"></span>Reddit — r/RuneCast</a>
+    <a class="social"><span class="dot" style="background:#1877F2;"></span>Facebook — RuneCast</a>
+  </div>
+</section>
+<div class="footer">
+  <div class="navmark" style="font-size:16px;">RuneCast</div>
+  <div>© 2026 Cycle Five · A neon word game for Discord</div>
+</div>
+
+<script type="module" src="script.js"></script>
 </body>
 </html>
