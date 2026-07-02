@@ -6,6 +6,14 @@ test('escapeHtml neutralizes markup', () => {
   assert.equal(escapeHtml('<img src=x onerror=alert(1)>'), '&lt;img src=x onerror=alert(1)&gt;');
 });
 
+test('escapeHtml escapes all five reserved characters', () => {
+  assert.equal(escapeHtml('&'), '&amp;');
+  assert.equal(escapeHtml('<'), '&lt;');
+  assert.equal(escapeHtml('>'), '&gt;');
+  assert.equal(escapeHtml('"'), '&quot;');
+  assert.equal(escapeHtml("'"), '&#39;');
+});
+
 test('renderLeaderboardRows renders medals, names, scores', () => {
   const html = renderLeaderboardRows([
     { rank: 1, user_id: '1', username: 'vowelmancer', score: 412 },

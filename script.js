@@ -23,8 +23,14 @@ export function renderLeaderboardRows(entries) {
 async function loadDailyLeaderboard() {
   const box = document.getElementById('daily-lb-rows');
   if (!box) return;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000);
   try {
-    const res = await fetch(`${API_BASE}/api/daily/leaderboard?limit=6`, { headers: { Accept: 'application/json' } });
+    const res = await fetch(`${API_BASE}/api/daily/leaderboard?limit=6`, {
+      headers: { Accept: 'application/json' },
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const entries = await res.json();
     if (!Array.isArray(entries) || entries.length === 0) throw new Error('empty');
