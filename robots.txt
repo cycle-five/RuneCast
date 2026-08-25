@@ -1,0 +1,20 @@
+# runeca.st
+#
+# A landing page for a Discord word game. It is published to be read -- by
+# people and by machines alike -- so nothing here is disallowed, and the
+# permission is stated positively rather than left to inference.
+#
+# Nothing needs a Disallow rule: this site is a single public page plus its
+# assets. The game itself lives behind the Discord API, not on this host,
+# so there is no private path here to keep out of an index.
+
+# Content-Signal is Cloudflare's machine-readable statement of intent, and its
+# own spec says an omitted signal "neither grants nor restricts permission".
+# Silence is therefore ambiguous rather than permissive, which is why all three
+# uses are written out:
+#   search:   building a search index and returning links and excerpts
+#   ai-input: retrieval, grounding, real-time answers (RAG and similar)
+#   ai-train: training and fine-tuning models
+User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+Allow: /
